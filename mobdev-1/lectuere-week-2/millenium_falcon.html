@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="person-details">
+    <div class="starship-details">
     </div>
     <script>
         function getJSONByCallbacks(url, succesHandler, errorHandler) {
@@ -29,20 +29,31 @@
             xhr.send(null);
         }
         
-        getJSONByCallbacks('https://swapi.co/api/people/1/',
+        getJSONByCallbacks('https://swapi.co/api/starships/10/',
         function(data){
-            var personDetailsElement = document.querySelector('.person-details');
+            var personDetailsElement = document.querySelector('.starship-details');
             var tempStr = '';
-            var films = '<li>' + data.films.join('</li><li>')
             tempStr += `
-                <h3 class="person__name">${data.name}</h3>
-                <div class="person__looks">
-                    <span class="person__height">${data.height}</span>
-                    <span class="person__height">${data.mass}</span>
+                <h3 class="starship__name">${data.name}</h3>
+                <div class="starship__specs">
+                    <span class="starship__model">${data.model}</span>
+                    <span class="starship__manufacturer">${data.manufacturer}</span>
+                    <span class="starship__length">${data.length}</span>
+                    <span class="starship__speed">${data.max_atmosphering_speed}</span>
+                    <span class="starship__crew">${data.crew}</span>
+                    <span class="starship__passegners">${data.passengers}</span>
+                    <span class="starship__cargo">${data.cargo_capacity}</span>
+                    <span class="starship__consumables">${data.consumables}</span>
+                    <span class="starship__hyperdrive_rating">${data.hyperdrive_rating}</span>
+                    <span class="starship__MGLT">${data.MGLT}</span>
+                    <span class="starship__class">${data.starship_class}</span>
                 </div>
-                <ul class="person__films">
+                <ul class="starship__pilots">
+                    <li>${data.pilots.join('</li><li>') } </li>
+                </ul>
+                <ul class="starship__films">
                     <li>${data.films.join('</li><li>') } </li>
-                </ul>            
+                </ul>              
                 `;
 
             personDetailsElement.innerHTML = tempStr;

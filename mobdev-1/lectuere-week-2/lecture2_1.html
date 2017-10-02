@@ -33,7 +33,6 @@
         function(data){
             var personDetailsElement = document.querySelector('.person-details');
             var tempStr = '';
-            var films = '<li>' + data.films.join('</li><li>')
             tempStr += `
                 <h3 class="person__name">${data.name}</h3>
                 <div class="person__looks">
