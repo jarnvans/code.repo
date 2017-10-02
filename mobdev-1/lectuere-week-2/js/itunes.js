@@ -21,10 +21,11 @@ getJSONByCallbacks('https://itunes.apple.com/search?term=sabaton&entity=album',
 function(data){
     console.log(data);
     var tempStr= '';
-    data.forEach(function(album) {
+    data.foreach(function(album) {
         tempStr += `
         <div class="artist__album">
-            <h3 class="artist__album-name>${album.}
+            <h3 class="artist__album-name>${album.collectionName}</h3>
+        </div>
 
         `
     }, this);
