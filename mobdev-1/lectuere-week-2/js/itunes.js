@@ -18,7 +18,7 @@ function getJSONPByCallbacks(url, successHandler, errorHandler){
     document.getElementsByTagName('head')[0].appendChild(script);
 }
 
-getJSONPByCallbacks('https://itunes.apple.com/search?term=sabaton&entity=album',
+getJSONPByCallbacks('https://itunes.apple.com/search?term=sabaton&entity=album&country=BE',
 function(data){
     console.log(data.results);
     var albumPlace = data.results;
@@ -32,7 +32,9 @@ function(data){
         <div class="artist__album">
             <img src="${album.artworkUrl100}" class="artist__album-artwork"></img>
             <h3 class="artist__album-name">${album.collectionName}</h3>
-            <span class="artist__album-price">${album.collectionPrice}</span>
+            <div class="artist__album-genre">${album.primaryGenreName}</div>           
+            <div class="artist__album-release">${album.releaseDate}</div>
+            <div class="artist__album-price">${album.collectionPrice + " " + album.currency}</div>
         </div>
         `
     }, this);
