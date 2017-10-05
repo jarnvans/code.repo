@@ -1,33 +1,39 @@
-function getJSONByCallbacks(url, succesHandler, errorHandler) {
-    var xhr = new XMLHttpRequest();
-    xhr.responseType = 'json';
-    xhr.open('GET', url, true);
-    xhr.onload = function() {
-        if(xhr.status == 200) {
-            var data = (!xhr.responseType)?JSON.parse(xhr.response):xhr.response;
-            succesHandler && succesHandler(data)
-        }
-        else {
-            errorHandler && errorHandler(`Error:${xhr.status}`);
-        }
-    }
-    xhr.onerror = function() {
-        errorHandler && errorHandler('Network Error!');
-    }
-    xhr.send(null);
+function getJSONPByCallbacks(url, successHandler, errorHandler){
+    var name = 'jsonp' + new Date().getTime();
+    if (url.match(/\?/)) url += '&callback='+name;
+    else url += '?callback='+name;
+
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = url;
+
+    window[name] = function(data){
+        document.getElementsByTagName('head')[0].removeChild(script);
+        script = null;
+        delete window[name];
+
+        successHandler && successHandler(data);
+    };
+
+    document.getElementsByTagName('head')[0].appendChild(script);
 }
 
-getJSONByCallbacks('https://itunes.apple.com/search?term=sabaton&entity=album',
+getJSONPByCallbacks('https://itunes.apple.com/search?term=sabaton&entity=album',
 function(data){
-    console.log(data);
+    console.log(data.results);
+    var albumPlace = data.results;
     var tempStr= '';
     var artistElement = document.querySelector('.artist');
+    tempStr = `<h1 class="artist-name">${data.results[0].artistName}</h1>`;
+    console.log(data.collectionName);
     data.results.forEach(function(album) {
+        console.log(album.collectionName);
         tempStr += `
         <div class="artist__album">
-            <h3 class="artist__album-name>${album.collectionName}</h3>
+            <img src="${album.artworkUrl100}" class="artist__album-artwork"></img>
+            <h3 class="artist__album-name">${album.collectionName}</h3>
+            <span class="artist__album-price">${album.collectionPrice}</span>
         </div>
-
         `
     }, this);
 
