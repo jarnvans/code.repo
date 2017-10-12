@@ -1,0 +1,53 @@
+:root {
+    --text: Arial, Helvetica, sans-serif;
+}
+
+* {
+    font-family: var(--text);
+}
+
+input {
+    padding: 10px;
+    width: 85%;
+    border-radius: 20px;
+    border: 0.5px solid grey;
+    margin-right: 10px;
+    height: 40px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px;
+    width: 10%;
+    border-radius: 20px;
+    border:none;
+    color: rgb(255,255,255);
+    background: hsl(3, 81.8%, 49.6%);
+    margin-right: 10px;
+    height: 55px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: rgb(255,255,255);
+    color: rgb(229, 33, 23);
+    border: 1px solid rgb(229, 33, 23);
+}
+
+.btn, input {
+    font-size: 15px;
+}
+
+.video {
+    height: 300px;
+    width: 28.5%;
+    display: inline-block;
+    margin-left: 120px;
+    padding: 50px 20px;
+    background: rgb(229, 33, 23);
+    border-radius: 50px;
+    margin-bottom: 60px;
+    font-size: 12px;
+    
+}

@@ -1,0 +1,23 @@
+:root {
+    
+}
+
+.led--on {
+    background: red;
+}
+
+.led--off {
+    background: black;
+}
+
+.arcade-character {
+    width: 280px;
+    
+}
+
+.led {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin-right: 4px;
+}
