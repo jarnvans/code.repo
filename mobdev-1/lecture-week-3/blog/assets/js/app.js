@@ -6,33 +6,35 @@
             this.tags = [];
             
             var tag = new Tag();
-            tag.id = new Date().getTime() + Math.round(random()*1000);
+            tag.id = new Date().getTime() + Math.round(Math.random()*1000);
             tag.name = 'rpi';
             tag.createdDate = new Date().getTime();
             this.tags.push(tag);
             
 
             tag = new Tag();
-            tag.id = new Date().getTime() + Math.round(random()*1000);
+            tag.id = new Date().getTime() + Math.round(Math.random()*1000);
             tag.name = 'minecraft';
             tag.createdDate = new Date().getTime();
             this.tags.push(tag);
 
+            console.log(this.tags);
 
             this.categories = [];
-            var category = new Tag();
-            category.id = new Date().getTime() + Math.round(random()*1000);
+
+            var category = new Category();
+            category.id = new Date().getTime() + Math.round(Math.random()*1000);
             category.name = 'rpi';
             category.createdDate = new Date().getTime();
             category.parentCategoryId = null;
-            this.tags.push(tag);
+            this.categories.push(category);
             
 
             category = new Category();
-            tag.id = new Date().getTime() + Math.round(random()*1000);
+            tag.id = new Date().getTime() + Math.round(Math.random()*1000);
             tag.name = 'minecraft';
             tag.createdDate = new Date().getTime();
-            this.tags.push(tag);
+            this.categories.push(category);
 
             console.log(this.categories);
         }
