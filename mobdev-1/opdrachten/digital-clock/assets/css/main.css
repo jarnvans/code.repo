@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'digital';
+    src: url('fonts/digtal-7.ttf'); /* IE9 Compat Modes */
+    src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('fonts/digital-7.ttf') format('truetype'), /* Modern Browsers */
+         url('fonts/digital-7.ttf')  format('truetype'), /* Safari, Android, iOS */
+         url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+  }
+ 
+* {
+    font-family: 'digital';
+}
+
+.clock {
+    color: rgb(255, 255, 255);
+    width: 500px;
+    height: 500px;
+    background-color: black;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 500px;
+    border:30px solid rgb(54, 54, 54);
+    
+}
+
+.time {
+    width: 140px;
+    font-size: 30px;
+    margin-left: 160px;
+    text-align: right;
+    margin-top: 50px;
+
+    
+}
+
+.hours-minutes {
+    font-size: 150px;
+    margin-left:4px;
+}
+
