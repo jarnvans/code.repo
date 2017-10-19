@@ -22,7 +22,7 @@ function drawFace(ctx, radius) {
     ctx.stroke();
 
     ctx.beginPath();
-    ctx.arc(0, 0, radius*0.05, 0, 2*Math.PI);
+    ctx.arc(0, 0, radius*0.01, 0, 2*Math.PI);
     ctx.fillStyle = '#333';
     ctx.fill();
 }
